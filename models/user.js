@@ -1,5 +1,12 @@
 const mongoose = require("mongoose");
 
+const petSchema = new mongoose.Schema({
+  name: String,
+  type: String,
+  color: String,
+  birthday: String,
+})
+
 const userSchema = new mongoose.Schema({
   username: {
     type: String,

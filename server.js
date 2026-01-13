@@ -9,7 +9,7 @@ const session = require('express-session')
 
 // Set the port from environment variable or default to 3000
 const port = process.env.PORT || 3000;
-
+const userController = require('./controllers/user')
 //Middlewares
 require('./db/connection')
 
@@ -45,6 +45,7 @@ app.get('/',(req,res) => {
 app.use( '/auth',authRoutes)
 //ROutes below this you must be signed in
 
+app.user('/users',userController)
 
 app.get('/vip-louge',(req,res)=>{
     if(req.session.user){
